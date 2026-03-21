@@ -22,6 +22,7 @@ import Biggbull18 from "./assets/Biggbull18.png";
 import Biggbull20 from "./assets/Biggbull20.png";
 import Biggbull26 from "./assets/Biggbull26.png";
 import Biggbull262 from "./assets/Biggbull262.png";
+import Logo from "./assets/logo_cropped.png";
 
 interface Cooler {
   id: number;
@@ -375,10 +376,9 @@ function App() {
       {/* Header */}
       <header className="bg-white shadow z-10 sticky top-0">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" onClick={() => setSearchTerm('')} className="text-2xl sm:text-3xl font-bold text-blue-900 tracking-tight cursor-pointer no-underline">
-            bajaj<span className="text-blue-500">shine</span>
-            <span className="block text-xs sm:text-sm font-normal text-gray-500 mt-0.5">Elevate your everyday</span>
-          </Link>
+          <a href="/" className="flex items-center cursor-pointer no-underline">
+            <img src={Logo} alt="Bajajshine Logo" className="h-10 sm:h-16 w-auto object-contain py-1" />
+          </a>
 
           <div className="relative w-48 sm:w-64 md:w-80">
             <input 
