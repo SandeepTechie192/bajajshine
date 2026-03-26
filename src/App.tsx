@@ -247,7 +247,11 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold text-gray-800 mb-8">Our Cooler Catalog</h1>
+      <h1 className="text-2xl font-semibold text-gray-800 mb-2">BajajShine Cooler Catalog</h1>
+      <p className="text-gray-600 mb-8 max-w-3xl">
+        Explore the official BajajShine range of personal and commercial coolers with detailed specifications,
+        features, and model information for homes, offices, and large spaces.
+      </p>
       {filteredCoolers.length === 0 ? (
         <p className="text-gray-500 text-center py-12 text-lg">No coolers found matching "{searchTerm}"</p>
       ) : (
