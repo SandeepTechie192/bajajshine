@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Routes, Route, Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Blower9 from "./assets/Blower9.png";
 import Polo12 from "./assets/Polo12.png";
 import Blaze12 from "./assets/Blaze12.png";
@@ -236,6 +236,109 @@ const coolers: Cooler[] = [
 ];
 
 const WHATSAPP_NUMBER = '+916287246263'; 
+const SITE_URL = 'https://bajajshine.in';
+
+function setMetaTag(attribute: 'name' | 'property', key: string, value: string) {
+  let element = document.querySelector(`meta[${attribute}="${key}"]`) as HTMLMetaElement | null;
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+  element.setAttribute('content', value);
+}
+
+function setCanonical(url: string) {
+  let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', url);
+}
+
+function setJsonLd(schema: Record<string, unknown>) {
+  const scriptId = 'dynamic-seo-schema';
+  let script = document.getElementById(scriptId) as HTMLScriptElement | null;
+  if (!script) {
+    script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = scriptId;
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(schema);
+}
+
+function SeoManager() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const pathname = location.pathname;
+    const currentUrl = `${SITE_URL}${pathname}`;
+
+    let title = 'BajajShine Air Coolers | Official Catalog';
+    let description = 'Explore the official BajajShine air cooler catalog with model details, features, and product information for homes, offices, and commercial spaces.';
+    let image = `${SITE_URL}/logo.png`;
+    let schema: Record<string, unknown> = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'BajajShine',
+      url: SITE_URL
+    };
+
+    const detailMatch = pathname.match(/^\/cooler\/(\d+)$/);
+    if (detailMatch) {
+      const coolerId = Number(detailMatch[1]);
+      const cooler = coolers.find((item) => item.id === coolerId);
+
+      if (cooler) {
+        const numericPrice = cooler.price.replace(/[^\d.]/g, '');
+        title = `${cooler.name} | BajajShine Air Cooler`;
+        description = cooler.fullDesc.slice(0, 158);
+        image = `${SITE_URL}${cooler.image}`;
+        schema = {
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: cooler.name,
+          description: cooler.fullDesc,
+          image,
+          brand: {
+            '@type': 'Brand',
+            name: 'BajajShine'
+          },
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'INR',
+            price: numericPrice,
+            availability: 'https://schema.org/InStock',
+            url: currentUrl
+          }
+        };
+      }
+    }
+
+    document.title = title;
+    setCanonical(currentUrl);
+
+    setMetaTag('name', 'description', description);
+    setMetaTag('name', 'robots', 'index, follow, max-image-preview:large');
+    setMetaTag('property', 'og:type', 'website');
+    setMetaTag('property', 'og:site_name', 'BajajShine');
+    setMetaTag('property', 'og:title', title);
+    setMetaTag('property', 'og:description', description);
+    setMetaTag('property', 'og:url', currentUrl);
+    setMetaTag('property', 'og:image', image);
+    setMetaTag('name', 'twitter:card', 'summary_large_image');
+    setMetaTag('name', 'twitter:title', title);
+    setMetaTag('name', 'twitter:description', description);
+    setMetaTag('name', 'twitter:image', image);
+
+    setJsonLd(schema);
+  }, [location.pathname]);
+
+  return null;
+}
 
 // Catalog Component
 function Catalog({ searchTerm }: { searchTerm: string }) {
@@ -377,6 +480,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+      <SeoManager />
       {/* Header */}
       <header className="bg-white shadow z-10 sticky top-0">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
