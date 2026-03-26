@@ -2,18 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.bajajshine.in"
-        }
-      ],
-      "destination": "https://bajajshine.in/:path*",
-      "permanent": true
-    }
-  ]
+  "outputDirectory": "dist"
 }
