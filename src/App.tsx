@@ -422,6 +422,7 @@ function SeoManager() {
 // Catalog Component
 function Catalog({ searchTerm }: { searchTerm: string }) {
   const navigate = useNavigate();
+  const [activeCategory, setActiveCategory] = useState<'inductions' | 'coolers'>('inductions');
 
   const filteredCoolers = coolers.filter(cooler => 
     cooler.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -435,92 +436,159 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
   );
 
   return (
-    <div className="space-y-12">
-      {/* Air Coolers Section */}
-      <section>
-        <h1 className="text-2xl font-semibold text-gray-800 mb-2">BajajShine Cooler Catalog</h1>
-        <p className="text-gray-600 mb-8 max-w-3xl">
-          Explore the official BajajShine range of personal and commercial coolers with detailed specifications,
-          features, and model information for homes, offices, and large spaces.
-        </p>
-        {filteredCoolers.length === 0 ? (
-          <p className="text-gray-500 text-center py-8 text-base bg-white rounded-lg border border-gray-100">
-            No coolers found matching "{searchTerm}"
+    <div className="space-y-8">
+      {/* Category Selector Tabs */}
+      <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 mb-6">
+        <div className="text-center sm:text-left mb-6">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+            BajajShine Product Catalog
+          </h1>
+          <p className="text-gray-600 mt-1 text-sm sm:text-base">
+            Select a category below to explore our range of Induction Cooktops and Air Coolers.
           </p>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
-            {filteredCoolers.map((cooler) => (
-              <div 
-                key={cooler.id} 
-                className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
-                onClick={() => navigate(`/cooler/${cooler.id}`)}
-              >
-                <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
-                  <img src={cooler.image} alt={cooler.name} className="h-full object-contain mix-blend-multiply" />
-                </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <h2 className="text-xl font-bold text-gray-900 mb-2">{cooler.name}</h2>
-                  <p className="text-gray-600 mb-4 flex-grow">{cooler.shortDesc}</p>
-                  <div className="mt-auto flex justify-between items-center">
-                    <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200 ml-auto">
-                      View Details
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* Induction Cooktop Section */}
-      <section className="pt-8 border-t border-gray-200">
-        <div className="flex items-center space-x-3 mb-2">
-          <h2 className="text-2xl font-bold text-gray-900">Induction Cooktops</h2>
-          <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">New Category</span>
         </div>
-        <p className="text-gray-600 mb-8 max-w-3xl">
-          Discover our high-efficiency induction cooktops with touch control, digital display, smart timer, and 2200 Watt fast heating.
-        </p>
-        {filteredInductions.length === 0 ? (
-          <p className="text-gray-500 text-center py-8 text-base bg-white rounded-lg border border-gray-100">
-            No induction cooktops found matching "{searchTerm}"
-          </p>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
-            {filteredInductions.map((item) => (
-              <div 
-                key={item.id} 
-                className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
-                onClick={() => navigate(`/induction/${item.id}`)}
-              >
-                <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
-                  <img src={item.image} alt={item.name} className="h-full object-contain mix-blend-multiply" />
-                </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
-                  <p className="text-gray-600 mb-4 text-sm flex-grow">{item.shortDesc}</p>
-                  <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-md border border-gray-100">
-                    {item.features.map((feature, idx) => (
-                      <li key={idx} className="text-xs text-gray-700 flex items-center font-medium">
-                        <svg className="w-3.5 h-3.5 text-green-500 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-auto flex justify-end items-center">
-                    <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200">
-                      View Details
-                    </span>
+
+        {/* Category Switcher Buttons */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-xl mx-auto sm:mx-0">
+          <button
+            type="button"
+            onClick={() => setActiveCategory('inductions')}
+            className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
+              activeCategory === 'inductions'
+                ? 'border-blue-600 bg-blue-50/70 text-blue-900 shadow-md ring-2 ring-blue-600/20'
+                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-gray-300 hover:bg-gray-100'
+            }`}
+          >
+            <div className={`p-3 rounded-lg ${activeCategory === 'inductions' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+              </svg>
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="font-bold text-base sm:text-lg flex items-center justify-center sm:justify-start">
+                Induction
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
+                  activeCategory === 'inductions' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+                }`}>
+                  {inductions.length}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 hidden sm:block">Cooktops & Appliances</p>
+            </div>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveCategory('coolers')}
+            className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
+              activeCategory === 'coolers'
+                ? 'border-blue-600 bg-blue-50/70 text-blue-900 shadow-md ring-2 ring-blue-600/20'
+                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-gray-300 hover:bg-gray-100'
+            }`}
+          >
+            <div className={`p-3 rounded-lg ${activeCategory === 'coolers' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="font-bold text-base sm:text-lg flex items-center justify-center sm:justify-start">
+                Air Coolers
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
+                  activeCategory === 'coolers' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+                }`}>
+                  {coolers.length}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 hidden sm:block">Personal & Commercial Coolers</p>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      {/* AIR COOLERS SECTION */}
+      {activeCategory === 'coolers' && (
+        <section className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold text-gray-900">Air Coolers ({filteredCoolers.length})</h2>
+          </div>
+          {filteredCoolers.length === 0 ? (
+            <p className="text-gray-500 text-center py-12 text-base bg-white rounded-xl border border-gray-100">
+              No coolers found matching "{searchTerm}"
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+              {filteredCoolers.map((cooler) => (
+                <div 
+                  key={cooler.id} 
+                  className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                  onClick={() => navigate(`/cooler/${cooler.id}`)}
+                >
+                  <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
+                    <img src={cooler.image} alt={cooler.name} className="h-full object-contain mix-blend-multiply" />
+                  </div>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{cooler.name}</h3>
+                    <p className="text-gray-600 mb-4 flex-grow text-sm">{cooler.shortDesc}</p>
+                    <div className="mt-auto flex justify-between items-center">
+                      <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200 ml-auto">
+                        View Details
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* INDUCTION SECTION */}
+      {activeCategory === 'inductions' && (
+        <section className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold text-gray-900">Induction Cooktops ({filteredInductions.length})</h2>
           </div>
-        )}
-      </section>
+          {filteredInductions.length === 0 ? (
+            <p className="text-gray-500 text-center py-8 text-base bg-white rounded-xl border border-gray-100">
+              No induction cooktops found matching "{searchTerm}"
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+              {filteredInductions.map((item) => (
+                <div 
+                  key={item.id} 
+                  className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                  onClick={() => navigate(`/induction/${item.id}`)}
+                >
+                  <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
+                    <img src={item.image} alt={item.name} className="h-full object-contain mix-blend-multiply" />
+                  </div>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
+                    <p className="text-gray-600 mb-4 text-sm flex-grow">{item.shortDesc}</p>
+                    <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-md border border-gray-100">
+                      {item.features.map((feature, idx) => (
+                        <li key={idx} className="text-xs text-gray-700 flex items-center font-medium">
+                          <svg className="w-3.5 h-3.5 text-green-500 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto flex justify-end items-center">
+                      <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200">
+                        View Details
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
     </div>
   );
 }
