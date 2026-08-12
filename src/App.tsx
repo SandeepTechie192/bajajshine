@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Blower9 from "./assets/Blower9.png";
+
 import Polo12 from "./assets/Polo12.png";
 import Blaze12 from "./assets/Blaze12.png";
 import BlazeTower12 from "./assets/Blazetower12.png";
