@@ -22,7 +22,56 @@ import Biggbull18 from "./assets/Biggbull18.png";
 import Biggbull20 from "./assets/Biggbull20.png";
 import Biggbull26 from "./assets/Biggbull26.png";
 import Biggbull262 from "./assets/Biggbull262.png";
+import Induction1 from "./assets/Induction/image-1.png";
+import Induction2 from "./assets/Induction/image-2.png";
 import Logo from "./assets/logo_cropped.png";
+
+interface InductionCooktop {
+  id: number;
+  name: string;
+  type: string;
+  image: string;
+  shortDesc: string;
+  fullDesc: string;
+  features: string[];
+}
+
+const inductions: InductionCooktop[] = [
+  {
+    id: 1,
+    name: 'INDUCTION COOKTOP (DOUBLE GLASS)',
+    type: 'DOUBLE GLASS',
+    image: Induction1,
+    shortDesc: 'Double Glass Induction Cooktop, 2200 Watt, Digital Display & Touch Control.',
+    fullDesc: 'The BajajShine Double Glass Induction Cooktop offers fast, efficient, and safe cooking with 2200W high power output, intuitive touch controls, digital display, smart timer, and overheat protection. Compatible with all types of vessels.',
+    features: [
+      'DOUBLE GLASS',
+      'Digital Display',
+      '2200 Watt',
+      'Timer',
+      'Over Heat Protection',
+      'Suitable for All Vessel',
+      'Touch Control'
+    ]
+  },
+  {
+    id: 2,
+    name: 'INDUCTION COOKTOP (SINGLE GLASS)',
+    type: 'SINGLE GLASS',
+    image: Induction2,
+    shortDesc: 'Single Glass Induction Cooktop, 2200 Watt, Digital Display & Touch Control.',
+    fullDesc: 'The BajajShine Single Glass Induction Cooktop delivers instant heating power with 2200 Watt capacity. Features a sleek single glass design, digital display panel, precise touch controls, built-in timer, and comprehensive overheat protection. Works with all vessel types.',
+    features: [
+      'SINGLE GLASS',
+      '2200 Watt',
+      'Digital Display',
+      'Timer',
+      'Over Heat Protection',
+      'Suitable for All Vessel',
+      'Touch Control'
+    ]
+  }
+];
 
 interface Cooler {
   id: number;
@@ -287,9 +336,9 @@ function SeoManager() {
       url: SITE_URL
     };
 
-    const detailMatch = pathname.match(/^\/cooler\/(\d+)$/);
-    if (detailMatch) {
-      const coolerId = Number(detailMatch[1]);
+    const coolerDetailMatch = pathname.match(/^\/cooler\/(\d+)$/);
+    if (coolerDetailMatch) {
+      const coolerId = Number(coolerDetailMatch[1]);
       const cooler = coolers.find((item) => item.id === coolerId);
 
       if (cooler) {
@@ -311,6 +360,35 @@ function SeoManager() {
             '@type': 'Offer',
             priceCurrency: 'INR',
             price: numericPrice,
+            availability: 'https://schema.org/InStock',
+            url: currentUrl
+          }
+        };
+      }
+    }
+
+    const inductionDetailMatch = pathname.match(/^\/induction\/(\d+)$/);
+    if (inductionDetailMatch) {
+      const inductionId = Number(inductionDetailMatch[1]);
+      const item = inductions.find((i) => i.id === inductionId);
+
+      if (item) {
+        title = `${item.name} | BajajShine Induction Cooktop`;
+        description = item.fullDesc.slice(0, 158);
+        image = `${SITE_URL}${item.image}`;
+        schema = {
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: item.name,
+          description: item.fullDesc,
+          image,
+          brand: {
+            '@type': 'Brand',
+            name: 'BajajShine'
+          },
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'INR',
             availability: 'https://schema.org/InStock',
             url: currentUrl
           }
@@ -345,43 +423,103 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
   const navigate = useNavigate();
 
   const filteredCoolers = coolers.filter(cooler => 
-    cooler.name.toLowerCase().includes(searchTerm.toLowerCase())
+    cooler.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    cooler.shortDesc.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredInductions = inductions.filter(item => 
+    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.shortDesc.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.features.some(f => f.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   return (
-    <div>
-      <h1 className="text-2xl font-semibold text-gray-800 mb-2">BajajShine Cooler Catalog</h1>
-      <p className="text-gray-600 mb-8 max-w-3xl">
-        Explore the official BajajShine range of personal and commercial coolers with detailed specifications,
-        features, and model information for homes, offices, and large spaces.
-      </p>
-      {filteredCoolers.length === 0 ? (
-        <p className="text-gray-500 text-center py-12 text-lg">No coolers found matching "{searchTerm}"</p>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
-          {filteredCoolers.map((cooler) => (
-            <div 
-              key={cooler.id} 
-              className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
-              onClick={() => navigate(`/cooler/${cooler.id}`)}
-            >
-              <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
-                <img src={cooler.image} alt={cooler.name} className="h-full object-contain mix-blend-multiply" />
-              </div>
-              <div className="p-6 flex-grow flex flex-col">
-                <h2 className="text-xl font-bold text-gray-900 mb-2">{cooler.name}</h2>
-                <p className="text-gray-600 mb-4 flex-grow">{cooler.shortDesc}</p>
-                <div className="mt-auto flex justify-between items-center">
-                  {/* <span className="text-blue-700 font-semibold">{cooler.price}</span> */}
-                  <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200 ml-auto">
-                    View Details
-                  </span>
+    <div className="space-y-12">
+      {/* Air Coolers Section */}
+      <section>
+        <h1 className="text-2xl font-semibold text-gray-800 mb-2">BajajShine Cooler Catalog</h1>
+        <p className="text-gray-600 mb-8 max-w-3xl">
+          Explore the official BajajShine range of personal and commercial coolers with detailed specifications,
+          features, and model information for homes, offices, and large spaces.
+        </p>
+        {filteredCoolers.length === 0 ? (
+          <p className="text-gray-500 text-center py-8 text-base bg-white rounded-lg border border-gray-100">
+            No coolers found matching "{searchTerm}"
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+            {filteredCoolers.map((cooler) => (
+              <div 
+                key={cooler.id} 
+                className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                onClick={() => navigate(`/cooler/${cooler.id}`)}
+              >
+                <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
+                  <img src={cooler.image} alt={cooler.name} className="h-full object-contain mix-blend-multiply" />
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <h2 className="text-xl font-bold text-gray-900 mb-2">{cooler.name}</h2>
+                  <p className="text-gray-600 mb-4 flex-grow">{cooler.shortDesc}</p>
+                  <div className="mt-auto flex justify-between items-center">
+                    <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200 ml-auto">
+                      View Details
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Induction Cooktop Section */}
+      <section className="pt-8 border-t border-gray-200">
+        <div className="flex items-center space-x-3 mb-2">
+          <h2 className="text-2xl font-bold text-gray-900">Induction Cooktops</h2>
+          <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">New Category</span>
         </div>
-      )}
+        <p className="text-gray-600 mb-8 max-w-3xl">
+          Discover our high-efficiency induction cooktops with touch control, digital display, smart timer, and 2200 Watt fast heating.
+        </p>
+        {filteredInductions.length === 0 ? (
+          <p className="text-gray-500 text-center py-8 text-base bg-white rounded-lg border border-gray-100">
+            No induction cooktops found matching "{searchTerm}"
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+            {filteredInductions.map((item) => (
+              <div 
+                key={item.id} 
+                className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                onClick={() => navigate(`/induction/${item.id}`)}
+              >
+                <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
+                  <img src={item.image} alt={item.name} className="h-full object-contain mix-blend-multiply" />
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
+                  <p className="text-gray-600 mb-4 text-sm flex-grow">{item.shortDesc}</p>
+                  <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-md border border-gray-100">
+                    {item.features.map((feature, idx) => (
+                      <li key={idx} className="text-xs text-gray-700 flex items-center font-medium">
+                        <svg className="w-3.5 h-3.5 text-green-500 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto flex justify-end items-center">
+                    <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200">
+                      View Details
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 }
@@ -466,6 +604,88 @@ function CoolerDetail() {
   );
 }
 
+// Induction Detail Component
+function InductionDetail() {
+  const { id } = useParams<{ id: string }>();
+  const selectedItem = inductions.find(i => i.id === Number(id));
+
+  if (!selectedItem) {
+    return (
+      <div className="text-center py-12">
+        <h2 className="text-2xl font-bold text-gray-800">Induction Cooktop not found!</h2>
+        <Link to="/" className="text-blue-600 mt-4 inline-block hover:underline">&larr; Back to Catalog</Link>
+      </div>
+    );
+  }
+
+  const handleEnquiry = (itemName: string) => {
+    const message = `Hello, I would like to enquire about the ${itemName}. Can you provide more details?`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
+      <div className="flex justify-between items-center p-4 border-b">
+        <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center">
+          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Back to Catalog
+        </Link>
+      </div>
+      <div className="flex flex-col md:flex-row">
+        {/* Product Image Side */}
+        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px]">
+          <img 
+            src={selectedItem.image} 
+            alt={selectedItem.name} 
+            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md" 
+          />
+        </div>
+
+        {/* Product Info Side */}
+        <div className="md:w-1/2 p-6 sm:p-8 md:p-12 flex flex-col justify-center">
+          <div className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 w-fit">
+            INDUCTION COOKTOP
+          </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">{selectedItem.name}</h1>
+          
+          <h3 className="text-lg font-semibold text-gray-800 mb-2 mt-4">Description</h3>
+          <p className="text-gray-600 leading-relaxed mb-8">
+            {selectedItem.fullDesc}
+          </p>
+
+          <h3 className="text-lg font-semibold text-gray-800 mb-3">Key Features</h3>
+          <ul className="mb-8 space-y-2">
+            {selectedItem.features.map((feature: string, idx: number) => (
+              <li key={idx} className="flex items-center text-gray-700 font-medium">
+                <svg className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto pt-6 border-t border-gray-100">
+            <button 
+              onClick={() => handleEnquiry(selectedItem.name)}
+              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm transition duration-200"
+            >
+              <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.57-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.066.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-5.824 4.74-10.563 10.564-10.563 5.826 0 10.564 4.738 10.564 10.563 0 5.827-4.739 10.563-10.564 10.563z"></path>
+              </svg>
+              Enquire on WhatsApp
+            </button>
+            <p className="text-xs text-gray-400 mt-3 text-center sm:text-left">
+              Redirects to WhatsApp with a pre-filled message
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Main App Layout
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -491,7 +711,7 @@ function App() {
           <div className="relative w-48 sm:w-64 md:w-80">
             <input 
               type="text" 
-              placeholder="Search coolers..." 
+              placeholder="Search products..." 
               value={searchTerm}
               onChange={handleSearchChange}
               className="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
@@ -514,6 +734,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Catalog searchTerm={searchTerm} />} />
           <Route path="/cooler/:id" element={<CoolerDetail />} />
+          <Route path="/induction/:id" element={<InductionDetail />} />
         </Routes>
       </main>
 
