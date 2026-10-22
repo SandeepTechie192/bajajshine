@@ -25,6 +25,18 @@ import Biggbull26 from "./assets/Biggbull26.png";
 import Biggbull262 from "./assets/Biggbull262.png";
 import Induction1 from "./assets/Induction/image-1.png";
 import Induction2 from "./assets/Induction/image-2.png";
+import Tv24Smart from "./assets/BS-24SMART.jpg";
+import Tv32Smart from "./assets/BS-32SMART.jpg";
+import Tv43Smart from "./assets/BS-43SMART.jpg";
+import Tv50Smart from "./assets/BS-50SMART.jpg";
+import Tv55Smart from "./assets/BS-55SMART.jpg";
+import Tv60Smart from "./assets/BS-60SMART.jpg";
+import Tv65Smart from "./assets/BS-65SMART.jpg";
+import Tv75Smart from "./assets/BS-75SMART.jpg";
+import IronBSLW750 from "./assets/BS-LW750.jpg";
+import IronBSDI750 from "./assets/BS-DI750.jpg";
+import IronBSHW1000 from "./assets/BS-HW1000.jpg";
+import IronBSDI750Chrome from "./assets/BS-DI750-CHROME.jpg";
 import Logo from "./assets/logo_cropped.png";
 
 interface InductionCooktop {
@@ -70,6 +82,234 @@ const inductions: InductionCooktop[] = [
       'Over Heat Protection',
       'Suitable for All Vessel',
       'Touch Control'
+    ]
+  }
+];
+
+interface Television {
+  id: number;
+  name: string;
+  size?: string;
+  image: string;
+  shortDesc: string;
+  fullDesc: string;
+  features: string[];
+  price?: string;
+}
+
+const televisions: Television[] = [
+  {
+    id: 1,
+    name: 'BAJAJSHINE 24" SMART LED TV (BS-24SMART)',
+    size: '24 Inch',
+    image: Tv24Smart,
+    shortDesc: '24" HD Ready Smart LED TV (BS-24SMART) with Wi-Fi & Bluetooth, 20W speaker output, and energy-efficient performance.',
+    fullDesc: 'Elevate your everyday entertainment with the BajajShine 24" Smart LED TV (Model: BS-24SMART). Designed for crisp picture quality and reliability, it features an HD Ready display, smart TV streaming features, built-in Wi-Fi connectivity, Bluetooth connectivity, powerful 20W stereo speakers, versatile multiple connectivity ports, and an energy-efficient architecture.',
+    features: [
+      'HD Ready Display',
+      'Smart TV',
+      'Wi-Fi Connectivity',
+      'Bluetooth Connectivity',
+      '20W Speaker Output',
+      'Multiple Connectivity',
+      'Energy Efficient'
+    ]
+  },
+  {
+    id: 2,
+    name: 'BAJAJSHINE 32" SMART LED TV (BS-32SMART)',
+    size: '32 Inch',
+    image: Tv32Smart,
+    shortDesc: '32" HD Ready Smart LED TV (BS-32SMART) with Wi-Fi & Bluetooth, 20W speaker output, and energy-efficient performance.',
+    fullDesc: 'Elevate your everyday entertainment with the BajajShine 32" Smart LED TV (Model: BS-32SMART). Designed for vibrant visuals and reliability, it features an HD Ready display, smart TV streaming apps, built-in Wi-Fi connectivity, Bluetooth connectivity, powerful 20W stereo audio output, multiple connectivity options, and an energy-efficient design tailored for modern homes.',
+    features: [
+      'HD Ready Display',
+      'Smart TV',
+      'Wi-Fi Connectivity',
+      'Bluetooth Connectivity',
+      '20W Speaker Output',
+      'Multiple Connectivity',
+      'Energy Efficient'
+    ]
+  },
+  {
+    id: 3,
+    name: 'BAJAJSHINE 43" SMART LED TV (BS-43SMART)',
+    size: '43 Inch',
+    image: Tv43Smart,
+    shortDesc: '43" Full HD Smart LED TV (BS-43SMART) with Wi-Fi & Bluetooth, 24W speaker output, and energy-efficient performance.',
+    fullDesc: 'Elevate your everyday entertainment with the BajajShine 43" Smart LED TV (Model: BS-43SMART). Featuring a stunning Full HD display for razor-sharp clarity and rich colors, smart TV streaming features, built-in Wi-Fi connectivity, Bluetooth connectivity, powerful 24W stereo audio output, multiple connectivity ports, and an energy-efficient architecture built for immersive viewing.',
+    features: [
+      'Full HD Display',
+      'Smart TV',
+      'Wi-Fi Connectivity',
+      'Bluetooth Connectivity',
+      '24W Speaker Output',
+      'Multiple Connectivity',
+      'Energy Efficient'
+    ]
+  },
+  {
+    id: 4,
+    name: 'BAJAJSHINE 50" SMART LED TV (BS-50SMART)',
+    size: '50 Inch',
+    image: Tv50Smart,
+    shortDesc: '50" Ultra HD (4K) Smart LED TV (BS-50SMART) with Wi-Fi & Bluetooth, 24W speaker output, and energy-efficient performance.',
+    fullDesc: 'Elevate your everyday entertainment with the BajajShine 50" Smart LED TV (Model: BS-50SMART). Boasting an Ultra HD (4K) display for breathtaking detail and lifelike clarity, smart TV streaming features, built-in Wi-Fi connectivity, Bluetooth connectivity, powerful 24W stereo audio output, multiple connectivity ports, and an energy-efficient architecture built for a true home theater experience.',
+    features: [
+      'Ultra HD (4K) Display',
+      'Smart TV',
+      'Wi-Fi Connectivity',
+      'Bluetooth Connectivity',
+      '24W Speaker Output',
+      'Multiple Connectivity',
+      'Energy Efficient'
+    ]
+  },
+  {
+    id: 5,
+    name: 'BAJAJSHINE 55" SMART LED TV (BS-55SMART)',
+    size: '55 Inch',
+    image: Tv55Smart,
+    shortDesc: '55" Ultra HD (4K) Smart LED TV (BS-55SMART) with Wi-Fi & Bluetooth, 30W speaker output, and energy-efficient performance.',
+    fullDesc: 'Elevate your everyday entertainment with the flagship BajajShine 55" Smart LED TV (Model: BS-55SMART). Featuring an expansive Ultra HD (4K) display for deep contrast and cinematic detail, smart TV streaming features, built-in Wi-Fi connectivity, Bluetooth connectivity, thunderous 30W stereo audio output, multiple connectivity ports, and an energy-efficient architecture for the ultimate home theater.',
+    features: [
+      'Ultra HD (4K) Display',
+      'Smart TV',
+      'Wi-Fi Connectivity',
+      'Bluetooth Connectivity',
+      '30W Speaker Output',
+      'Multiple Connectivity',
+      'Energy Efficient'
+    ]
+  },
+  {
+    id: 6,
+    name: 'BAJAJSHINE 60" SMART LED TV (BS-60SMART)',
+    size: '60 Inch',
+    image: Tv60Smart,
+    shortDesc: '60" Ultra HD (4K) Smart LED TV (BS-60SMART) with Wi-Fi & Bluetooth, 30W speaker output, and energy-efficient performance.',
+    fullDesc: 'Elevate your everyday entertainment with the commanding BajajShine 60" Smart LED TV (Model: BS-60SMART). Designed for grand living spaces, it boasts an ultra-crisp Ultra HD (4K) display, smart TV streaming features, built-in Wi-Fi connectivity, Bluetooth connectivity, thunderous 30W stereo audio output, multiple connectivity ports, and an energy-efficient architecture for an unparalleled cinematic experience.',
+    features: [
+      'Ultra HD (4K) Display',
+      'Smart TV',
+      'Wi-Fi Connectivity',
+      'Bluetooth Connectivity',
+      '30W Speaker Output',
+      'Multiple Connectivity',
+      'Energy Efficient'
+    ]
+  },
+  {
+    id: 7,
+    name: 'BAJAJSHINE 65" SMART LED TV (BS-65SMART)',
+    size: '65 Inch',
+    image: Tv65Smart,
+    shortDesc: '65" Ultra HD (4K) Smart LED TV (BS-65SMART) with Wi-Fi & Bluetooth, 30W speaker output, and energy-efficient performance.',
+    fullDesc: 'Elevate your everyday entertainment with the premier BajajShine 65" Smart LED TV (Model: BS-65SMART). Offering an expansive Ultra HD (4K) display for breathtaking scale and cinematic realism, smart TV streaming features, built-in Wi-Fi connectivity, Bluetooth connectivity, powerful 30W stereo audio output, multiple connectivity ports, and an energy-efficient architecture designed for modern home theaters.',
+    features: [
+      'Ultra HD (4K) Display',
+      'Smart TV',
+      'Wi-Fi Connectivity',
+      'Bluetooth Connectivity',
+      '30W Speaker Output',
+      'Multiple Connectivity',
+      'Energy Efficient'
+    ]
+  },
+  {
+    id: 8,
+    name: 'BAJAJSHINE 75" SMART LED TV (BS-75SMART)',
+    size: '75 Inch',
+    image: Tv75Smart,
+    shortDesc: '75" Ultra HD (4K) Smart LED TV (BS-75SMART) with Wi-Fi & Bluetooth, 40W speaker output, and energy-efficient performance.',
+    fullDesc: 'Elevate your everyday entertainment with the monumental BajajShine 75" Smart LED TV (Model: BS-75SMART). Designed to deliver a private IMAX-caliber home theater, it features a colossal Ultra HD (4K) display, smart TV streaming features, built-in Wi-Fi connectivity, Bluetooth connectivity, room-shaking 40W stereo audio output, multiple connectivity ports, and an energy-efficient architecture.',
+    features: [
+      'Ultra HD (4K) Display',
+      'Smart TV',
+      'Wi-Fi Connectivity',
+      'Bluetooth Connectivity',
+      '40W Speaker Output',
+      'Multiple Connectivity',
+      'Energy Efficient'
+    ]
+  }
+];
+
+interface IronProduct {
+  id: number;
+  name: string;
+  type?: string;
+  image: string;
+  shortDesc: string;
+  fullDesc: string;
+  features: string[];
+  price?: string;
+}
+
+const irons: IronProduct[] = [
+  {
+    id: 1,
+    name: 'BAJAJSHINE LIGHT WEIGHT IRON (BS-LW750)',
+    type: 'LIGHT WEIGHT IRON',
+    image: IronBSLW750,
+    shortDesc: '750W Lightweight Dry Iron (BS-LW750) with non-stick soleplate, adjustable temperature control, and fast heating.',
+    fullDesc: 'The BajajShine Lightweight Iron (Model: BS-LW750) is engineered for effortless everyday fabric care. Featuring a 750W fast-heating element, premium non-stick coated soleplate, adjustable temperature control thermostat, shock-proof ergonomic body, and energy-saving technology, it glides smoothly across all garments.',
+    features: [
+      '750 Watt Fast Heating',
+      'Non-Stick Soleplate',
+      'Adjustable Temperature Control',
+      'Shock Proof Body',
+      'Lightweight & Easy to Use',
+      'Energy Saving'
+    ]
+  },
+  {
+    id: 2,
+    name: 'BAJAJSHINE DRY IRON LIGHT (BS-DI750)',
+    type: 'DRY IRON (LIGHT)',
+    image: IronBSDI750,
+    shortDesc: '750W Lightweight Dry Iron (BS-DI750) with non-stick soleplate, adjustable temperature control, and fast heating.',
+    fullDesc: 'The BajajShine Dry Iron Light (Model: BS-DI750) delivers smooth and hassle-free ironing for all your fabrics. Equipped with a 750W rapid-heating element, premium non-stick soleplate, adjustable temperature control dial, ergonomic shock-proof body, and energy-saving performance.',
+    features: [
+      '750 Watt Fast Heating',
+      'Non-Stick Soleplate',
+      'Adjustable Temperature Control',
+      'Lightweight & Easy to Use',
+      'Shock Proof Body',
+      'Energy Saving'
+    ]
+  },
+  {
+    id: 3,
+    name: 'BAJAJSHINE HEAVY WEIGHT IRON (BS-HW1000)',
+    type: 'HEAVY WEIGHT IRON',
+    image: IronBSHW1000,
+    shortDesc: '1000W Heavy Weight Iron (BS-HW1000) with non-stick soleplate, adjustable temperature control, and heavy-duty performance.',
+    fullDesc: 'The BajajShine Heavy Weight Iron (Model: BS-HW1000) is built for powerful, crease-free pressing. Delivering 1000W of rapid heating power paired with a classic heavy-weight design, smooth non-stick soleplate, multi-fabric temperature dial, shock-proof body, and energy-saving efficiency, it flattens stubborn wrinkles with minimal effort.',
+    features: [
+      '1000 Watt Fast Heating',
+      'Non-Stick Soleplate',
+      'Adjustable Temperature Control',
+      'Heavy Duty Performance',
+      'Shock Proof Body',
+      'Energy Saving'
+    ]
+  },
+  {
+    id: 4,
+    name: 'BAJAJSHINE DRY IRON LIGHT - CLASSIC (BS-DI750)',
+    type: 'DRY IRON (LIGHT)',
+    image: IronBSDI750Chrome,
+    shortDesc: '750W Dry Iron Light (BS-DI750) with chrome base, non-stick soleplate, and dual temperature control.',
+    fullDesc: 'The BajajShine Dry Iron Light Classic (Model: BS-DI750) features a durable chrome-finished skirt base with a premium non-stick soleplate. Powered by a 750W fast-heating element, adjustable temperature controls, shock-proof body, and energy-saving technology for smooth and efficient ironing.',
+    features: [
+      '750 Watt Fast Heating',
+      'Non-Stick Soleplate',
+      'Adjustable Temperature Control',
+      'Lightweight & Easy to Use',
+      'Shock Proof Body',
+      'Energy Saving'
     ]
   }
 ];
@@ -397,6 +637,64 @@ function SeoManager() {
       }
     }
 
+    const tvDetailMatch = pathname.match(/^\/tv\/(\d+)$/);
+    if (tvDetailMatch) {
+      const tvId = Number(tvDetailMatch[1]);
+      const item = televisions.find((i) => i.id === tvId);
+
+      if (item) {
+        title = `${item.name} | BajajShine Smart TV`;
+        description = item.fullDesc.slice(0, 158);
+        image = `${SITE_URL}${item.image}`;
+        schema = {
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: item.name,
+          description: item.fullDesc,
+          image,
+          brand: {
+            '@type': 'Brand',
+            name: 'BajajShine'
+          },
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'INR',
+            availability: 'https://schema.org/InStock',
+            url: currentUrl
+          }
+        };
+      }
+    }
+
+    const ironDetailMatch = pathname.match(/^\/iron\/(\d+)$/);
+    if (ironDetailMatch) {
+      const ironId = Number(ironDetailMatch[1]);
+      const item = irons.find((i) => i.id === ironId);
+
+      if (item) {
+        title = `${item.name} | BajajShine Electric Iron`;
+        description = item.fullDesc.slice(0, 158);
+        image = `${SITE_URL}${item.image}`;
+        schema = {
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: item.name,
+          description: item.fullDesc,
+          image,
+          brand: {
+            '@type': 'Brand',
+            name: 'BajajShine'
+          },
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'INR',
+            availability: 'https://schema.org/InStock',
+            url: currentUrl
+          }
+        };
+      }
+    }
+
     document.title = title;
     setCanonical(currentUrl);
 
@@ -422,7 +720,7 @@ function SeoManager() {
 // Catalog Component
 function Catalog({ searchTerm }: { searchTerm: string }) {
   const navigate = useNavigate();
-  const [activeCategory, setActiveCategory] = useState<'inductions' | 'coolers'>('inductions');
+  const [activeCategory, setActiveCategory] = useState<'inductions' | 'coolers' | 'tvs' | 'irons'>('inductions');
 
   const filteredCoolers = coolers.filter(cooler => 
     cooler.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -430,6 +728,18 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
   );
 
   const filteredInductions = inductions.filter(item => 
+    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.shortDesc.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.features.some(f => f.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
+
+  const filteredTelevisions = televisions.filter(item => 
+    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.shortDesc.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.features.some(f => f.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
+
+  const filteredIrons = irons.filter(item => 
     item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item.shortDesc.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item.features.some(f => f.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -444,12 +754,12 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
             BajajShine Product Catalog
           </h1>
           <p className="text-gray-600 mt-1 text-sm sm:text-base">
-            Select a category below to explore our range of Induction Cooktops and Air Coolers.
+            Select a category below to explore our range of Induction Cooktops, Air Coolers, Televisions, and Irons.
           </p>
         </div>
 
         {/* Category Switcher Buttons */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-xl mx-auto sm:mx-0">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto sm:mx-0">
           <button
             type="button"
             onClick={() => setActiveCategory('inductions')}
@@ -500,7 +810,62 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
                   {coolers.length}
                 </span>
               </div>
-              <p className="text-xs text-gray-500 hidden sm:block">Personal & Commercial Coolers</p>
+              <p className="text-xs text-gray-500 hidden sm:block">Personal & Commercial</p>
+            </div>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveCategory('tvs')}
+            className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
+              activeCategory === 'tvs'
+                ? 'border-blue-600 bg-blue-50/70 text-blue-900 shadow-md ring-2 ring-blue-600/20'
+                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-gray-300 hover:bg-gray-100'
+            }`}
+          >
+            <div className={`p-3 rounded-lg ${activeCategory === 'tvs' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="4" width="20" height="13" rx="2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 20h8m-4-3v3" />
+              </svg>
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="font-bold text-base sm:text-lg flex items-center justify-center sm:justify-start">
+                TV
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
+                  activeCategory === 'tvs' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+                }`}>
+                  {televisions.length}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 hidden sm:block">Smart LED Televisions</p>
+            </div>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveCategory('irons')}
+            className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
+              activeCategory === 'irons'
+                ? 'border-blue-600 bg-blue-50/70 text-blue-900 shadow-md ring-2 ring-blue-600/20'
+                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-gray-300 hover:bg-gray-100'
+            }`}
+          >
+            <div className={`p-3 rounded-lg ${activeCategory === 'irons' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 16h17a2 2 0 002-2c0-3.5-3-6-6.5-6H6a3 3 0 00-3 3v5zm0 0v2h18v-2M6 8V5a2 2 0 012-2h6" />
+              </svg>
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="font-bold text-base sm:text-lg flex items-center justify-center sm:justify-start">
+                Iron
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
+                  activeCategory === 'irons' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+                }`}>
+                  {irons.length}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 hidden sm:block">Dry & Steam Irons</p>
             </div>
           </button>
         </div>
@@ -571,6 +936,100 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
                       {item.features.map((feature, idx) => (
                         <li key={idx} className="text-xs text-gray-700 flex items-center font-medium">
                           <svg className="w-3.5 h-3.5 text-green-500 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto flex justify-end items-center">
+                      <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200">
+                        View Details
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* TELEVISION SECTION */}
+      {activeCategory === 'tvs' && (
+        <section className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold text-gray-900">Televisions ({filteredTelevisions.length})</h2>
+          </div>
+          {filteredTelevisions.length === 0 ? (
+            <p className="text-gray-500 text-center py-8 text-base bg-white rounded-xl border border-gray-100">
+              No televisions found matching "{searchTerm}"
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+              {filteredTelevisions.map((tv) => (
+                <div 
+                  key={tv.id} 
+                  className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                  onClick={() => navigate(`/tv/${tv.id}`)}
+                >
+                  <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
+                    <img src={tv.image} alt={tv.name} className="h-full object-contain mix-blend-multiply" />
+                  </div>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{tv.name}</h3>
+                    <p className="text-gray-600 mb-4 text-sm flex-grow">{tv.shortDesc}</p>
+                    <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-md border border-gray-100">
+                      {tv.features.slice(0, 4).map((feature, idx) => (
+                        <li key={idx} className="text-xs text-gray-700 flex items-center font-medium">
+                          <svg className="w-3.5 h-3.5 text-blue-500 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto flex justify-end items-center">
+                      <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200">
+                        View Details
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* IRON SECTION */}
+      {activeCategory === 'irons' && (
+        <section className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold text-gray-900">Electric & Steam Irons ({filteredIrons.length})</h2>
+          </div>
+          {filteredIrons.length === 0 ? (
+            <p className="text-gray-500 text-center py-8 text-base bg-white rounded-xl border border-gray-100">
+              No irons found matching "{searchTerm}"
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+              {filteredIrons.map((iron) => (
+                <div 
+                  key={iron.id} 
+                  className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                  onClick={() => navigate(`/iron/${iron.id}`)}
+                >
+                  <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
+                    <img src={iron.image} alt={iron.name} className="h-full object-contain mix-blend-multiply" />
+                  </div>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{iron.name}</h3>
+                    <p className="text-gray-600 mb-4 text-sm flex-grow">{iron.shortDesc}</p>
+                    <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-md border border-gray-100">
+                      {iron.features.slice(0, 4).map((feature, idx) => (
+                        <li key={idx} className="text-xs text-gray-700 flex items-center font-medium">
+                          <svg className="w-3.5 h-3.5 text-blue-500 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                           {feature}
@@ -755,6 +1214,170 @@ function InductionDetail() {
   );
 }
 
+// Television Detail Component
+function TvDetail() {
+  const { id } = useParams<{ id: string }>();
+  const selectedTv = televisions.find(t => t.id === Number(id));
+
+  if (!selectedTv) {
+    return (
+      <div className="text-center py-12">
+        <h2 className="text-2xl font-bold text-gray-800">Television not found!</h2>
+        <Link to="/" className="text-blue-600 mt-4 inline-block hover:underline">&larr; Back to Catalog</Link>
+      </div>
+    );
+  }
+
+  const handleEnquiry = (tvName: string) => {
+    const message = `Hello, I would like to enquire about the ${tvName}. Can you provide more details?`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
+      <div className="flex justify-between items-center p-4 border-b">
+        <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center">
+          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Back to Catalog
+        </Link>
+      </div>
+      <div className="flex flex-col md:flex-row">
+        {/* Product Image Side */}
+        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px]">
+          <img 
+            src={selectedTv.image} 
+            alt={selectedTv.name} 
+            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md" 
+          />
+        </div>
+
+        {/* Product Info Side */}
+        <div className="md:w-1/2 p-6 sm:p-8 md:p-12 flex flex-col justify-center">
+          <div className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 w-fit">
+            SMART LED TV
+          </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">{selectedTv.name}</h1>
+          
+          <h3 className="text-lg font-semibold text-gray-800 mb-2 mt-4">Description</h3>
+          <p className="text-gray-600 leading-relaxed mb-8">
+            {selectedTv.fullDesc}
+          </p>
+
+          <h3 className="text-lg font-semibold text-gray-800 mb-3">Key Features</h3>
+          <ul className="mb-8 space-y-2">
+            {selectedTv.features.map((feature: string, idx: number) => (
+              <li key={idx} className="flex items-center text-gray-700 font-medium">
+                <svg className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto pt-6 border-t border-gray-100">
+            <button 
+              onClick={() => handleEnquiry(selectedTv.name)}
+              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm transition duration-200"
+            >
+              <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.57-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.066.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-5.824 4.74-10.563 10.564-10.563 5.826 0 10.564 4.738 10.564 10.563 0 5.827-4.739 10.563-10.564 10.563z"></path>
+              </svg>
+              Enquire on WhatsApp
+            </button>
+            <p className="text-xs text-gray-400 mt-3 text-center sm:text-left">
+              Redirects to WhatsApp with a pre-filled message
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Iron Detail Component
+function IronDetail() {
+  const { id } = useParams<{ id: string }>();
+  const selectedIron = irons.find(i => i.id === Number(id));
+
+  if (!selectedIron) {
+    return (
+      <div className="text-center py-12">
+        <h2 className="text-2xl font-bold text-gray-800">Iron not found!</h2>
+        <Link to="/" className="text-blue-600 mt-4 inline-block hover:underline">&larr; Back to Catalog</Link>
+      </div>
+    );
+  }
+
+  const handleEnquiry = (ironName: string) => {
+    const message = `Hello, I would like to enquire about the ${ironName}. Can you provide more details?`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
+      <div className="flex justify-between items-center p-4 border-b">
+        <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center">
+          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Back to Catalog
+        </Link>
+      </div>
+      <div className="flex flex-col md:flex-row">
+        {/* Product Image Side */}
+        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px]">
+          <img 
+            src={selectedIron.image} 
+            alt={selectedIron.name} 
+            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md" 
+          />
+        </div>
+
+        {/* Product Info Side */}
+        <div className="md:w-1/2 p-6 sm:p-8 md:p-12 flex flex-col justify-center">
+          <div className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 w-fit">
+            {selectedIron.type || 'LIGHT WEIGHT IRON'}
+          </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">{selectedIron.name}</h1>
+          
+          <h3 className="text-lg font-semibold text-gray-800 mb-2 mt-4">Description</h3>
+          <p className="text-gray-600 leading-relaxed mb-8">
+            {selectedIron.fullDesc}
+          </p>
+
+          <h3 className="text-lg font-semibold text-gray-800 mb-3">Key Features</h3>
+          <ul className="mb-8 space-y-2">
+            {selectedIron.features.map((feature: string, idx: number) => (
+              <li key={idx} className="flex items-center text-gray-700 font-medium">
+                <svg className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto pt-6 border-t border-gray-100">
+            <button 
+              onClick={() => handleEnquiry(selectedIron.name)}
+              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm transition duration-200"
+            >
+              <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.57-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.066.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-5.824 4.74-10.563 10.564-10.563 5.826 0 10.564 4.738 10.564 10.563 0 5.827-4.739 10.563-10.564 10.563z"></path>
+              </svg>
+              Enquire on WhatsApp
+            </button>
+            <p className="text-xs text-gray-400 mt-3 text-center sm:text-left">
+              Redirects to WhatsApp with a pre-filled message
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Main App Layout
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -804,6 +1427,8 @@ function App() {
           <Route path="/" element={<Catalog searchTerm={searchTerm} />} />
           <Route path="/cooler/:id" element={<CoolerDetail />} />
           <Route path="/induction/:id" element={<InductionDetail />} />
+          <Route path="/tv/:id" element={<TvDetail />} />
+          <Route path="/iron/:id" element={<IronDetail />} />
         </Routes>
       </main>
 
@@ -815,7 +1440,7 @@ function App() {
               bajaj<span className="text-blue-500">shine</span>
             </span>
             <p className="text-sm text-gray-400 max-w-xs">
-              Elevate your everyday with our premium range of air coolers and home appliances. Built for performance and reliability.
+              Elevate your everyday with our premium range of air coolers, smart TVs, irons, and home appliances. Built for performance and reliability.
             </p>
           </div>
           <div>
