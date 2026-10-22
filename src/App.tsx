@@ -763,13 +763,13 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
           <button
             type="button"
             onClick={() => setActiveCategory('inductions')}
-            className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
+            className={`group flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-300 ease-out cursor-pointer transform active:scale-95 ${
               activeCategory === 'inductions'
-                ? 'border-blue-600 bg-blue-50/70 text-blue-900 shadow-md ring-2 ring-blue-600/20'
-                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-gray-300 hover:bg-gray-100'
+                ? 'border-blue-600 bg-gradient-to-br from-blue-50/90 to-indigo-50/60 text-blue-900 shadow-md ring-2 ring-blue-500/20 -translate-y-0.5'
+                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-blue-300 hover:bg-white hover:-translate-y-0.5 hover:shadow-sm'
             }`}
           >
-            <div className={`p-3 rounded-lg ${activeCategory === 'inductions' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}>
+            <div className={`p-3 rounded-lg transition-all duration-300 ${activeCategory === 'inductions' ? 'bg-blue-600 text-white shadow-sm scale-105' : 'bg-gray-100 text-gray-600 group-hover:scale-105 group-hover:bg-blue-100 group-hover:text-blue-600'}`}>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
               </svg>
@@ -777,8 +777,8 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
             <div className="text-center sm:text-left">
               <div className="font-bold text-base sm:text-lg flex items-center justify-center sm:justify-start">
                 Induction
-                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
-                  activeCategory === 'inductions' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold transition-colors duration-200 ${
+                  activeCategory === 'inductions' ? 'bg-blue-600 text-white shadow-xs' : 'bg-gray-200 text-gray-700 group-hover:bg-blue-100 group-hover:text-blue-700'
                 }`}>
                   {inductions.length}
                 </span>
@@ -790,13 +790,13 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
           <button
             type="button"
             onClick={() => setActiveCategory('coolers')}
-            className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
+            className={`group flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-300 ease-out cursor-pointer transform active:scale-95 ${
               activeCategory === 'coolers'
-                ? 'border-blue-600 bg-blue-50/70 text-blue-900 shadow-md ring-2 ring-blue-600/20'
-                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-gray-300 hover:bg-gray-100'
+                ? 'border-blue-600 bg-gradient-to-br from-blue-50/90 to-indigo-50/60 text-blue-900 shadow-md ring-2 ring-blue-500/20 -translate-y-0.5'
+                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-blue-300 hover:bg-white hover:-translate-y-0.5 hover:shadow-sm'
             }`}
           >
-            <div className={`p-3 rounded-lg ${activeCategory === 'coolers' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}>
+            <div className={`p-3 rounded-lg transition-all duration-300 ${activeCategory === 'coolers' ? 'bg-blue-600 text-white shadow-sm scale-105' : 'bg-gray-100 text-gray-600 group-hover:scale-105 group-hover:bg-blue-100 group-hover:text-blue-600'}`}>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
@@ -804,8 +804,8 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
             <div className="text-center sm:text-left">
               <div className="font-bold text-base sm:text-lg flex items-center justify-center sm:justify-start">
                 Air Coolers
-                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
-                  activeCategory === 'coolers' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold transition-colors duration-200 ${
+                  activeCategory === 'coolers' ? 'bg-blue-600 text-white shadow-xs' : 'bg-gray-200 text-gray-700 group-hover:bg-blue-100 group-hover:text-blue-700'
                 }`}>
                   {coolers.length}
                 </span>
@@ -817,13 +817,13 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
           <button
             type="button"
             onClick={() => setActiveCategory('tvs')}
-            className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
+            className={`group flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-300 ease-out cursor-pointer transform active:scale-95 ${
               activeCategory === 'tvs'
-                ? 'border-blue-600 bg-blue-50/70 text-blue-900 shadow-md ring-2 ring-blue-600/20'
-                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-gray-300 hover:bg-gray-100'
+                ? 'border-blue-600 bg-gradient-to-br from-blue-50/90 to-indigo-50/60 text-blue-900 shadow-md ring-2 ring-blue-500/20 -translate-y-0.5'
+                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-blue-300 hover:bg-white hover:-translate-y-0.5 hover:shadow-sm'
             }`}
           >
-            <div className={`p-3 rounded-lg ${activeCategory === 'tvs' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}>
+            <div className={`p-3 rounded-lg transition-all duration-300 ${activeCategory === 'tvs' ? 'bg-blue-600 text-white shadow-sm scale-105' : 'bg-gray-100 text-gray-600 group-hover:scale-105 group-hover:bg-blue-100 group-hover:text-blue-600'}`}>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <rect x="2" y="4" width="20" height="13" rx="2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 20h8m-4-3v3" />
@@ -832,8 +832,8 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
             <div className="text-center sm:text-left">
               <div className="font-bold text-base sm:text-lg flex items-center justify-center sm:justify-start">
                 TV
-                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
-                  activeCategory === 'tvs' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold transition-colors duration-200 ${
+                  activeCategory === 'tvs' ? 'bg-blue-600 text-white shadow-xs' : 'bg-gray-200 text-gray-700 group-hover:bg-blue-100 group-hover:text-blue-700'
                 }`}>
                   {televisions.length}
                 </span>
@@ -845,13 +845,13 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
           <button
             type="button"
             onClick={() => setActiveCategory('irons')}
-            className={`flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer ${
+            className={`group flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-xl border-2 transition-all duration-300 ease-out cursor-pointer transform active:scale-95 ${
               activeCategory === 'irons'
-                ? 'border-blue-600 bg-blue-50/70 text-blue-900 shadow-md ring-2 ring-blue-600/20'
-                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-gray-300 hover:bg-gray-100'
+                ? 'border-blue-600 bg-gradient-to-br from-blue-50/90 to-indigo-50/60 text-blue-900 shadow-md ring-2 ring-blue-500/20 -translate-y-0.5'
+                : 'border-gray-200 bg-gray-50/50 text-gray-700 hover:border-blue-300 hover:bg-white hover:-translate-y-0.5 hover:shadow-sm'
             }`}
           >
-            <div className={`p-3 rounded-lg ${activeCategory === 'irons' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}>
+            <div className={`p-3 rounded-lg transition-all duration-300 ${activeCategory === 'irons' ? 'bg-blue-600 text-white shadow-sm scale-105' : 'bg-gray-100 text-gray-600 group-hover:scale-105 group-hover:bg-blue-100 group-hover:text-blue-600'}`}>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 16h17a2 2 0 002-2c0-3.5-3-6-6.5-6H6a3 3 0 00-3 3v5zm0 0v2h18v-2M6 8V5a2 2 0 012-2h6" />
               </svg>
@@ -859,8 +859,8 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
             <div className="text-center sm:text-left">
               <div className="font-bold text-base sm:text-lg flex items-center justify-center sm:justify-start">
                 Iron
-                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
-                  activeCategory === 'irons' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold transition-colors duration-200 ${
+                  activeCategory === 'irons' ? 'bg-blue-600 text-white shadow-xs' : 'bg-gray-200 text-gray-700 group-hover:bg-blue-100 group-hover:text-blue-700'
                 }`}>
                   {irons.length}
                 </span>
@@ -873,7 +873,7 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
 
       {/* AIR COOLERS SECTION */}
       {activeCategory === 'coolers' && (
-        <section className="space-y-6">
+        <section key="coolers" className="space-y-6 animate-section-switch">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-gray-900">Air Coolers ({filteredCoolers.length})</h2>
           </div>
@@ -886,18 +886,19 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
               {filteredCoolers.map((cooler) => (
                 <div 
                   key={cooler.id} 
-                  className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                  className="group bg-white rounded-2xl shadow-xs border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out cursor-pointer flex flex-col"
                   onClick={() => navigate(`/cooler/${cooler.id}`)}
                 >
-                  <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
-                    <img src={cooler.image} alt={cooler.name} className="h-full object-contain mix-blend-multiply" />
+                  <div className="h-64 bg-gradient-to-b from-gray-50/80 to-gray-100/40 p-4 flex items-center justify-center overflow-hidden">
+                    <img src={cooler.image} alt={cooler.name} className="h-full object-contain mix-blend-multiply transition-transform duration-500 ease-out group-hover:scale-105" />
                   </div>
                   <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{cooler.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">{cooler.name}</h3>
                     <p className="text-gray-600 mb-4 flex-grow text-sm">{cooler.shortDesc}</p>
                     <div className="mt-auto flex justify-between items-center">
-                      <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200 ml-auto">
+                      <span className="bg-blue-600 group-hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 shadow-xs group-hover:shadow-md ml-auto">
                         View Details
+                        <span className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
                       </span>
                     </div>
                   </div>
@@ -910,7 +911,7 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
 
       {/* INDUCTION SECTION */}
       {activeCategory === 'inductions' && (
-        <section className="space-y-6">
+        <section key="inductions" className="space-y-6 animate-section-switch">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-gray-900">Induction Cooktops ({filteredInductions.length})</h2>
           </div>
@@ -923,16 +924,16 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
               {filteredInductions.map((item) => (
                 <div 
                   key={item.id} 
-                  className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                  className="group bg-white rounded-2xl shadow-xs border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out cursor-pointer flex flex-col"
                   onClick={() => navigate(`/induction/${item.id}`)}
                 >
-                  <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
-                    <img src={item.image} alt={item.name} className="h-full object-contain mix-blend-multiply" />
+                  <div className="h-64 bg-gradient-to-b from-gray-50/80 to-gray-100/40 p-4 flex items-center justify-center overflow-hidden">
+                    <img src={item.image} alt={item.name} className="h-full object-contain mix-blend-multiply transition-transform duration-500 ease-out group-hover:scale-105" />
                   </div>
                   <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">{item.name}</h3>
                     <p className="text-gray-600 mb-4 text-sm flex-grow">{item.shortDesc}</p>
-                    <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-md border border-gray-100">
+                    <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-lg border border-gray-100">
                       {item.features.map((feature, idx) => (
                         <li key={idx} className="text-xs text-gray-700 flex items-center font-medium">
                           <svg className="w-3.5 h-3.5 text-green-500 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -943,8 +944,9 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
                       ))}
                     </ul>
                     <div className="mt-auto flex justify-end items-center">
-                      <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200">
+                      <span className="bg-blue-600 group-hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 shadow-xs group-hover:shadow-md">
                         View Details
+                        <span className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
                       </span>
                     </div>
                   </div>
@@ -957,7 +959,7 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
 
       {/* TELEVISION SECTION */}
       {activeCategory === 'tvs' && (
-        <section className="space-y-6">
+        <section key="tvs" className="space-y-6 animate-section-switch">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-gray-900">Televisions ({filteredTelevisions.length})</h2>
           </div>
@@ -970,16 +972,16 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
               {filteredTelevisions.map((tv) => (
                 <div 
                   key={tv.id} 
-                  className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                  className="group bg-white rounded-2xl shadow-xs border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out cursor-pointer flex flex-col"
                   onClick={() => navigate(`/tv/${tv.id}`)}
                 >
-                  <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
-                    <img src={tv.image} alt={tv.name} className="h-full object-contain mix-blend-multiply" />
+                  <div className="h-64 bg-gradient-to-b from-gray-50/80 to-gray-100/40 p-4 flex items-center justify-center overflow-hidden">
+                    <img src={tv.image} alt={tv.name} className="h-full object-contain mix-blend-multiply transition-transform duration-500 ease-out group-hover:scale-105" />
                   </div>
                   <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{tv.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">{tv.name}</h3>
                     <p className="text-gray-600 mb-4 text-sm flex-grow">{tv.shortDesc}</p>
-                    <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-md border border-gray-100">
+                    <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-lg border border-gray-100">
                       {tv.features.slice(0, 4).map((feature, idx) => (
                         <li key={idx} className="text-xs text-gray-700 flex items-center font-medium">
                           <svg className="w-3.5 h-3.5 text-blue-500 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -990,8 +992,9 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
                       ))}
                     </ul>
                     <div className="mt-auto flex justify-end items-center">
-                      <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200">
+                      <span className="bg-blue-600 group-hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 shadow-xs group-hover:shadow-md">
                         View Details
+                        <span className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
                       </span>
                     </div>
                   </div>
@@ -1004,7 +1007,7 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
 
       {/* IRON SECTION */}
       {activeCategory === 'irons' && (
-        <section className="space-y-6">
+        <section key="irons" className="space-y-6 animate-section-switch">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-gray-900">Electric & Steam Irons ({filteredIrons.length})</h2>
           </div>
@@ -1017,16 +1020,16 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
               {filteredIrons.map((iron) => (
                 <div 
                   key={iron.id} 
-                  className="bg-white rounded-lg shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200 cursor-pointer flex flex-col"
+                  className="group bg-white rounded-2xl shadow-xs border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out cursor-pointer flex flex-col"
                   onClick={() => navigate(`/iron/${iron.id}`)}
                 >
-                  <div className="h-64 bg-gray-100 p-4 flex items-center justify-center">
-                    <img src={iron.image} alt={iron.name} className="h-full object-contain mix-blend-multiply" />
+                  <div className="h-64 bg-gradient-to-b from-gray-50/80 to-gray-100/40 p-4 flex items-center justify-center overflow-hidden">
+                    <img src={iron.image} alt={iron.name} className="h-full object-contain mix-blend-multiply transition-transform duration-500 ease-out group-hover:scale-105" />
                   </div>
                   <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{iron.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">{iron.name}</h3>
                     <p className="text-gray-600 mb-4 text-sm flex-grow">{iron.shortDesc}</p>
-                    <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-md border border-gray-100">
+                    <ul className="mb-6 space-y-1.5 bg-gray-50 p-3 rounded-lg border border-gray-100">
                       {iron.features.slice(0, 4).map((feature, idx) => (
                         <li key={idx} className="text-xs text-gray-700 flex items-center font-medium">
                           <svg className="w-3.5 h-3.5 text-blue-500 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1037,8 +1040,9 @@ function Catalog({ searchTerm }: { searchTerm: string }) {
                       ))}
                     </ul>
                     <div className="mt-auto flex justify-end items-center">
-                      <span className="bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-200">
+                      <span className="bg-blue-600 group-hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 shadow-xs group-hover:shadow-md">
                         View Details
+                        <span className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
                       </span>
                     </div>
                   </div>
@@ -1073,20 +1077,20 @@ function CoolerDetail() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
-      <div className="flex justify-between items-center p-4 border-b">
-        <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center">
-          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden animate-section-switch">
+      <div className="flex justify-between items-center p-4 border-b border-gray-100">
+        <Link to="/" className="group text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center transition-colors duration-200">
+          <svg className="w-4 h-4 mr-2 transition-transform duration-200 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
           Back to Catalog
         </Link>
       </div>
       <div className="flex flex-col md:flex-row">
         {/* Product Image Side */}
-        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px]">
+        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px] overflow-hidden">
           <img 
             src={selectedCooler.image} 
             alt={selectedCooler.name} 
-            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md" 
+            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md transition-transform duration-500 ease-out hover:scale-105" 
           />
         </div>
 
@@ -1115,7 +1119,7 @@ function CoolerDetail() {
           <div className="mt-auto pt-6 border-t border-gray-100">
             <button 
               onClick={() => handleEnquiry(selectedCooler.name)}
-              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm transition duration-200"
+              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.57-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.066.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-5.824 4.74-10.563 10.564-10.563 5.826 0 10.564 4.738 10.564 10.563 0 5.827-4.739 10.563-10.564 10.563z"></path>
@@ -1153,20 +1157,20 @@ function InductionDetail() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
-      <div className="flex justify-between items-center p-4 border-b">
-        <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center">
-          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden animate-section-switch">
+      <div className="flex justify-between items-center p-4 border-b border-gray-100">
+        <Link to="/" className="group text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center transition-colors duration-200">
+          <svg className="w-4 h-4 mr-2 transition-transform duration-200 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
           Back to Catalog
         </Link>
       </div>
       <div className="flex flex-col md:flex-row">
         {/* Product Image Side */}
-        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px]">
+        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px] overflow-hidden">
           <img 
             src={selectedItem.image} 
             alt={selectedItem.name} 
-            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md" 
+            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md transition-transform duration-500 ease-out hover:scale-105" 
           />
         </div>
 
@@ -1197,7 +1201,7 @@ function InductionDetail() {
           <div className="mt-auto pt-6 border-t border-gray-100">
             <button 
               onClick={() => handleEnquiry(selectedItem.name)}
-              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm transition duration-200"
+              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.57-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.066.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-5.824 4.74-10.563 10.564-10.563 5.826 0 10.564 4.738 10.564 10.563 0 5.827-4.739 10.563-10.564 10.563z"></path>
@@ -1235,20 +1239,20 @@ function TvDetail() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
-      <div className="flex justify-between items-center p-4 border-b">
-        <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center">
-          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden animate-section-switch">
+      <div className="flex justify-between items-center p-4 border-b border-gray-100">
+        <Link to="/" className="group text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center transition-colors duration-200">
+          <svg className="w-4 h-4 mr-2 transition-transform duration-200 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
           Back to Catalog
         </Link>
       </div>
       <div className="flex flex-col md:flex-row">
         {/* Product Image Side */}
-        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px]">
+        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px] overflow-hidden">
           <img 
             src={selectedTv.image} 
             alt={selectedTv.name} 
-            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md" 
+            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md transition-transform duration-500 ease-out hover:scale-105" 
           />
         </div>
 
@@ -1279,7 +1283,7 @@ function TvDetail() {
           <div className="mt-auto pt-6 border-t border-gray-100">
             <button 
               onClick={() => handleEnquiry(selectedTv.name)}
-              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm transition duration-200"
+              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.57-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.066.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-5.824 4.74-10.563 10.564-10.563 5.826 0 10.564 4.738 10.564 10.563 0 5.827-4.739 10.563-10.564 10.563z"></path>
@@ -1317,20 +1321,20 @@ function IronDetail() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
-      <div className="flex justify-between items-center p-4 border-b">
-        <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center">
-          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden animate-section-switch">
+      <div className="flex justify-between items-center p-4 border-b border-gray-100">
+        <Link to="/" className="group text-blue-600 hover:text-blue-800 font-medium pb-1 inline-flex items-center transition-colors duration-200">
+          <svg className="w-4 h-4 mr-2 transition-transform duration-200 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
           Back to Catalog
         </Link>
       </div>
       <div className="flex flex-col md:flex-row">
         {/* Product Image Side */}
-        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px]">
+        <div className="md:w-1/2 p-4 sm:p-8 bg-gray-50 flex items-center justify-center min-h-[400px] overflow-hidden">
           <img 
             src={selectedIron.image} 
             alt={selectedIron.name} 
-            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md" 
+            className="w-full max-h-[500px] object-contain mix-blend-multiply drop-shadow-md transition-transform duration-500 ease-out hover:scale-105" 
           />
         </div>
 
@@ -1361,7 +1365,7 @@ function IronDetail() {
           <div className="mt-auto pt-6 border-t border-gray-100">
             <button 
               onClick={() => handleEnquiry(selectedIron.name)}
-              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm transition duration-200"
+              className="w-full sm:w-auto flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.57-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.066.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-5.824 4.74-10.563 10.564-10.563 5.826 0 10.564 4.738 10.564 10.563 0 5.827-4.739 10.563-10.564 10.563z"></path>
