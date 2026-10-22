@@ -298,15 +298,16 @@ const irons: IronProduct[] = [
   },
   {
     id: 4,
-    name: 'BAJAJSHINE DRY IRON LIGHT - CLASSIC (BS-DI750)',
-    type: 'DRY IRON (LIGHT)',
+    name: 'BAJAJSHINE HEAVY WEIGHT IRON (BS-DI750)',
+    type: 'HEAVY WEIGHT IRON',
     image: IronBSDI750Chrome,
-    shortDesc: '750W Dry Iron Light (BS-DI750) with chrome base, non-stick soleplate, and dual temperature control.',
-    fullDesc: 'The BajajShine Dry Iron Light Classic (Model: BS-DI750) features a durable chrome-finished skirt base with a premium non-stick soleplate. Powered by a 750W fast-heating element, adjustable temperature controls, shock-proof body, and energy-saving technology for smooth and efficient ironing.',
+    shortDesc: '1000W Heavy Weight Iron (BS-DI750) with chrome base, non-stick soleplate, and adjustable temperature control.',
+    fullDesc: 'The BajajShine Heavy Weight Iron (Model: BS-DI750) features a durable chrome-finished base with a premium non-stick soleplate. Powered by a 1000W fast-heating element, adjustable temperature controls, shock-proof body, and energy-saving technology for smooth, powerful, and efficient ironing.',
     features: [
-      '750 Watt Fast Heating',
+      '1000 Watt Fast Heating',
       'Non-Stick Soleplate',
       'Adjustable Temperature Control',
+      'Fast Heating',
       'Lightweight & Easy to Use',
       'Shock Proof Body',
       'Energy Saving'
